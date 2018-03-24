@@ -14,7 +14,8 @@ curl "${API}${URL_PATH}" \
       "organization": "'"${ORGANIZATION}"'",
       "email": "'"${EMAIL}"'",
       "password": "'"${PASSWORD}"'",
-      "password_confirmation": "'"${PASSWORD}"'"
+      "password_confirmation": "'"${PASSWORD}"'",
+      "_organization": "5ab6a4baa635833d657bfbfb"
     }
   }'
 

@@ -2,19 +2,26 @@
 
 const mongoose = require('mongoose')
 
-const blogPostSchema = new mongoose.Schema({
-  title: {
+const organizationSchema = new mongoose.Schema({
+  name: {
     type: String,
     required: true
   },
-  body: {
+  address: {
     type: String,
     required: true
   },
-  _organization: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Organization',
+  logo: {
+    type: String,
+    required: false
+  },
+  description: {
+    type: String,
     required: true
+  },
+  mission_statement: {
+    type: String,
+    required: false
   },
   _owner: {
     type: mongoose.Schema.Types.ObjectId,
@@ -33,10 +40,10 @@ const blogPostSchema = new mongoose.Schema({
   }
 })
 
-// blogPostSchema.virtual('length').get(function length () {
+// organizationSchema.virtual('length').get(function length () {
 //   return this.text.length
 // })
 
-const BlogPost = mongoose.model('BlogPost', blogPostSchema)
+const Organization = mongoose.model('Organization', organizationSchema)
 
-module.exports = BlogPost
+module.exports = Organization

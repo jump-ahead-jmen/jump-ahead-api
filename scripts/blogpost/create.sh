@@ -11,7 +11,8 @@ curl "${API}${URL_PATH}" \
   --data '{
     "blogPost": {
       "title": "'"${TITLE}"'",
-      "body": "'"${BODY}"'"
+      "body": "'"${BODY}"'",
+      "_organization": "5ab6a4baa635833d657bfbfb"
     }
   }'
 
