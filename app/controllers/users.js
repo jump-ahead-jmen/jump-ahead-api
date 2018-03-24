@@ -27,7 +27,7 @@ const getToken = () =>
   )
 
 const index = (req, res, next) => {
-  User.find({})
+  User.find({}).populate('_organization')
     .then(users => res.json({ users }))
     .catch(next)
 }
@@ -49,7 +49,7 @@ const signup = (req, res, next) => {
   const user = {
     first_name: credentials.first_name,
     last_name: credentials.last_name,
-    organization: credentials.organization,
+    _organization: credentials._organization,
     email: credentials.email,
     password: credentials.password
   }

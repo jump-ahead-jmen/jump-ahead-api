@@ -9,7 +9,7 @@ const setUser = require('./concerns/set-current-user')
 const setModel = require('./concerns/set-mongoose-model')
 
 const index = (req, res, next) => {
-  Organization.find()
+  Organization.find().populate('_owner')
     .then(organizations => res.json({
       organizations: organizations.map((e) =>
         e.toJSON({ virtuals: true, user: req.user }))

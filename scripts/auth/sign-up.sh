@@ -11,11 +11,10 @@ curl "${API}${URL_PATH}" \
     "credentials": {
       "first_name": "'"${FIRST_NAME}"'",
       "last_name": "'"${LAST_NAME}"'",
-      "organization": "'"${ORGANIZATION}"'",
       "email": "'"${EMAIL}"'",
+      "_organization": "5ab6a4baa635833d657bfbfb",
       "password": "'"${PASSWORD}"'",
-      "password_confirmation": "'"${PASSWORD}"'",
-      "_organization": "5ab6a4baa635833d657bfbfb"
+      "password_confirmation": "'"${PASSWORD}"'"
     }
   }'
 
