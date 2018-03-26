@@ -2,26 +2,14 @@
 
 const mongoose = require('mongoose')
 
-const organizationSchema = new mongoose.Schema({
-  name: {
+const webpageSchema = new mongoose.Schema({
+  title: {
     type: String,
     required: true
   },
-  address: {
+  body: {
     type: String,
     required: true
-  },
-  logo: {
-    type: String,
-    required: false
-  },
-  description: {
-    type: String,
-    required: true
-  },
-  mission_statement: {
-    type: String,
-    required: false
   },
   _owner: {
     type: mongoose.Schema.Types.ObjectId,
@@ -40,10 +28,10 @@ const organizationSchema = new mongoose.Schema({
   }
 })
 
-// organizationSchema.virtual('length').get(function length () {
+// webpageSchema.virtual('length').get(function length () {
 //   return this.text.length
 // })
 
-const Organization = mongoose.model('Organization', organizationSchema)
+const Webpage = mongoose.model('Webpage', webpageSchema)
 
-module.exports = Organization
+module.exports = Webpage

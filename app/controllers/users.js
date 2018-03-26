@@ -47,9 +47,7 @@ const makeErrorHandler = (res, next) =>
 const signup = (req, res, next) => {
   const credentials = req.body.credentials
   const user = {
-    first_name: credentials.first_name,
-    last_name: credentials.last_name,
-    _organization: credentials._organization,
+    organization: credentials.organization,
     email: credentials.email,
     password: credentials.password
   }
