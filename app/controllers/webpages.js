@@ -19,7 +19,7 @@ const index = (req, res, next) => {
 
 const show = (req, res) => {
   res.json({
-    blogPost: req.webpage.toJSON({ virtuals: true, user: req.user })
+    webpage: req.webpage.toJSON({ virtuals: true, user: req.user })
   })
 }
 
