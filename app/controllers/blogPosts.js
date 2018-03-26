@@ -19,7 +19,7 @@ const index = (req, res, next) => {
 
 const show = (req, res) => {
   res.json({
-    blogPost: req.blogPost.toJSON({ virtuals: true, user: req.user })
+    blogPost: req.blogpost.toJSON({ virtuals: true, user: req.user })
   })
 }
 
@@ -39,13 +39,13 @@ const create = (req, res, next) => {
 const update = (req, res, next) => {
   delete req.body.blogPost._owner  // disallow owner reassignment.
 
-  req.blogPost.update(req.body.blogPost)
+  req.blogpost.update(req.body.blogPost)
     .then(() => res.sendStatus(204))
     .catch(next)
 }
 
 const destroy = (req, res, next) => {
-  req.blogPost.remove()
+  req.blogpost.remove()
     .then(() => res.sendStatus(204))
     .catch(next)
 }
