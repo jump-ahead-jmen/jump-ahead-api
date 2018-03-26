@@ -2,16 +2,16 @@
 
 const controller = require('lib/wiring/controller')
 const models = require('app/models')
-const BlogPost = models.blogPost
+const Webpage = models.webpage
 
 const authenticate = require('./concerns/authenticate')
 const setUser = require('./concerns/set-current-user')
 const setModel = require('./concerns/set-mongoose-model')
 
 const index = (req, res, next) => {
-  BlogPost.find().populate('_owner')
-    .then(blogPosts => res.json({
-      blogPosts: blogPosts.map((e) =>
+  Webpage.find().populate('_owner')
+    .then(webpages => res.json({
+      webpages: webpages.map((e) =>
         e.toJSON({ virtuals: true, user: req.user }))
     }))
     .catch(next)
@@ -19,33 +19,33 @@ const index = (req, res, next) => {
 
 const show = (req, res) => {
   res.json({
-    blogPost: req.blogPost.toJSON({ virtuals: true, user: req.user })
+    blogPost: req.webpage.toJSON({ virtuals: true, user: req.user })
   })
 }
 
 const create = (req, res, next) => {
-  const blogPost = Object.assign(req.body.blogPost, {
+  const webpage = Object.assign(req.body.webpage, {
     _owner: req.user._id
   })
-  BlogPost.create(blogPost)
-    .then(blogPost =>
+  Webpage.create(webpage)
+    .then(webpage =>
       res.status(201)
         .json({
-          blogPost: blogPost.toJSON({ virtuals: true, user: req.user })
+          webpage: webpage.toJSON({ virtuals: true, user: req.user })
         }))
     .catch(next)
 }
 
 const update = (req, res, next) => {
-  delete req.body.blogPost._owner  // disallow owner reassignment.
+  delete req.body.webpage._owner  // disallow owner reassignment.
 
-  req.blogPost.update(req.body.blogPost)
+  req.webpage.update(req.body.webpage)
     .then(() => res.sendStatus(204))
     .catch(next)
 }
 
 const destroy = (req, res, next) => {
-  req.blogPost.remove()
+  req.webpage.remove()
     .then(() => res.sendStatus(204))
     .catch(next)
 }
@@ -59,6 +59,6 @@ module.exports = controller({
 }, { before: [
   { method: setUser, only: ['index', 'show'] },
   { method: authenticate, except: ['index', 'show'] },
-  { method: setModel(BlogPost), only: ['show'] },
-  { method: setModel(BlogPost, { forUser: true }), only: ['update', 'destroy'] }
+  { method: setModel(Webpage), only: ['show'] },
+  { method: setModel(Webpage, { forUser: true }), only: ['update', 'destroy'] }
 ] })

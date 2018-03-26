@@ -11,11 +11,6 @@ const blogPostSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  _organization: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Organization',
-    required: true
-  },
   _owner: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
