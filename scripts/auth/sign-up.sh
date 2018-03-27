@@ -12,7 +12,10 @@ curl "${API}${URL_PATH}" \
       "email": "'"${EMAIL}"'",
       "organization": "'"${ORGANIZATION}"'",
       "password": "'"${PASSWORD}"'",
-      "password_confirmation": "'"${PASSWORD}"'"
+      "password_confirmation": "'"${PASSWORD}"'",
+      "address": "'"${ADDRESS}"'",
+      "phone_number": "'"${PHONE_NUMBER}"'",
+      "company_description":"'"${COMPANY_DESCRIPTION}"'"
     }
   }'
 
