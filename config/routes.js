@@ -19,5 +19,5 @@ module.exports = require('lib/wiring/routes')
 .patch('/change-password/:id', 'users#changepw')
 .resources('users', { only: ['index', 'show'] })
 .get('/ownedwebpages/:id', 'webpages#indexByUser')
-
+.get('/ownedblogposts/:id', 'blogPosts#indexByUser')
 // all routes created
