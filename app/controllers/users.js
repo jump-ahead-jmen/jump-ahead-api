@@ -49,7 +49,10 @@ const signup = (req, res, next) => {
   const user = {
     organization: credentials.organization,
     email: credentials.email,
-    password: credentials.password
+    password: credentials.password,
+    address: credentials.address,
+    phone_number: credentials.phone_number,
+    company_description: credentials.company_description
   }
 
   getToken()
