@@ -17,6 +17,15 @@ const index = (req, res, next) => {
     .catch(next)
 }
 
+const indexByUser = (req, res, next) => {
+  BlogPost.find({_owner: req.params.id}).populate('_owner')
+    .then(blogPosts => res.json({
+      blogPosts: blogPosts.map((e) =>
+        e.toJSON({ virtuals: true, user: req.user }))
+    }))
+    .catch(next)
+}
+
 const show = (req, res) => {
   res.json({
     blogPost: req.blogpost.toJSON({ virtuals: true, user: req.user })
@@ -55,10 +64,11 @@ module.exports = controller({
   show,
   create,
   update,
-  destroy
+  destroy,
+  indexByUser
 }, { before: [
-  { method: setUser, only: ['index', 'show'] },
-  { method: authenticate, except: ['index', 'show'] },
+  { method: setUser, only: ['index', 'show', 'indexByUser'] },
+  { method: authenticate, except: ['index', 'show', 'indexByUser'] },
   { method: setModel(BlogPost), only: ['show'] },
   { method: setModel(BlogPost, { forUser: true }), only: ['update', 'destroy'] }
 ] })

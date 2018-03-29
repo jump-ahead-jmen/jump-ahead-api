@@ -49,7 +49,10 @@ const signup = (req, res, next) => {
   const user = {
     organization: credentials.organization,
     email: credentials.email,
-    password: credentials.password
+    password: credentials.password,
+    address: credentials.address,
+    phone_number: credentials.phone_number,
+    company_description: credentials.company_description
   }
 
   getToken()
@@ -121,5 +124,5 @@ module.exports = controller({
   signout,
   changepw
 }, { before: [
-  { method: authenticate, except: ['signup', 'signin', 'index'] }
+  { method: authenticate, except: ['signup', 'signin', 'index', 'show'] }
 ] })
