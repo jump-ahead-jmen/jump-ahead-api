@@ -18,7 +18,6 @@ const index = (req, res, next) => {
 }
 
 const indexByUser = (req, res, next) => {
-  console.log(req.params.id)
   BlogPost.find({_owner: req.params.id}).populate('_owner')
     .then(blogPosts => res.json({
       blogPosts: blogPosts.map((e) =>
