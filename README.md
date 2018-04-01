@@ -5,7 +5,8 @@ JUMP AHEAD is a web application that allows users to create websites and blogpos
 ERD: https://imgur.com/a/hOO1F
 Wireframes: https://i.imgur.com/kwfQEaa.jpg
 Deployed Website: https://jump-ahead-jmen.github.io/jump-ahead/
-Link to API repo: https://github.com/jump-ahead-jmen/jump-ahead-api
+Link to CLIENT repo: https://github.com/jump-ahead-jmen/jump-ahead
+Link to deployed API: https://jump-ahead-api.herokuapp.com/
 
 User Stories:
 As a user, I want to be able to log in and out of my account and edit my own resources.
