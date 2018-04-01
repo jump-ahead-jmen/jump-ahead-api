@@ -54,5 +54,4 @@ users\
   -signup\
   -signin\
   -signout\
-  -changepw\
-\
+  -changepw  
