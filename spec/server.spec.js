@@ -46,6 +46,10 @@ describe('loading express', function () {
       credentials: {
         email: 'r@r.com',
         password: 'izcool',
+        organization: 'r is cool',
+        company_description: 'r is a company',
+        phone_number: 'rrrrrrrrr',
+        address: 'r street',
         password_confirmation: 'izcool'
       }
     }
