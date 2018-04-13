@@ -11,6 +11,7 @@ module.exports = require('lib/wiring/routes')
 .resources('examples', { except: ['new', 'edit'] })
 .resources('blogPosts', { except: ['new', 'edit'] })
 .resources('webpages', { except: ['new', 'edit'] })
+.resources('images')
 
 // users of the app have special requirements
 .post('/sign-up', 'users#signup')
