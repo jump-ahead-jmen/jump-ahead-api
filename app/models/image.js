@@ -3,19 +3,13 @@
 const mongoose = require('mongoose')
 
 const imageSchema = new mongoose.Schema({
+  path: String,
   title: {
-    type: String,
-    required: true
-  },
-  description: {
     type: String
   },
-  tags: [{
-    content: String
-  }],
+  description: String,
   url: {
-    type: String,
-    required: true
+    type: String
   },
   _owner: {
     type: mongoose.Schema.Types.ObjectId,
