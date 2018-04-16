@@ -20,6 +20,7 @@ module.exports = require('lib/wiring/routes')
 .patch('/change-password/:id', 'users#changepw')
 .resources('users', { only: ['index', 'show'] })
 .get('/ownedimages/:id', 'images#indexByUser')
+.resources('tokens', { only: ['create'] })
 .get('/ownedwebpages/:id', 'webpages#indexByUser')
 .get('/ownedblogposts/:id', 'blogPosts#indexByUser')
 // all routes created
